@@ -1,0 +1,61 @@
+body, html{
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer{
+    height: 250px;
+    width: 100vw;
+    background-color: #dfe4f6;
+    font-weight: bold;
+    min-width: 1000px;
+}
+
+.contact{
+    height: 250px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+
+.contact-1{
+    width: fit-content;
+    padding: 20px;
+    margin-left: 150px;
+}
+
+.contact-1 h1{
+    margin-bottom: 25px;
+    font-size: 33px;
+}
+.contact-1 p{
+    line-height: 20px;
+    margin-left: 20px;
+}
+.contact-2{
+    width: fit-content;
+    padding: 20px;
+    float: left;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.contact-2 p{
+    line-height: 20px;
+}
+
+.img{
+    margin-left: auto;
+    margin-right: 100px;
+}
+
+.logo-{
+    /*margin-left: 20px;*/
+}
+.logo- a{
+    text-decoration: none;
+}
+.icon{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}

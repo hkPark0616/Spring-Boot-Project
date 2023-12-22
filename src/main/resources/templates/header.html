@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<link rel="stylesheet" type="text/css" th:href="@{/static/css/header.css}">-->
+<link rel="stylesheet" type="text/css" href="/css/header.css">
+<link rel="stylesheet" type="text/css" href="/static/css/header.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" th:src="@{/js/modal.js}"></script>
+<script type="text/javascript" th:src="@{/js/signup.js}"></script>
+<script type="text/javascript" th:src="@{/js/login.js}"></script>
+<script type="text/javascript" th:src="@{/js/userInfoModal.js}"></script>
+<body>
+    <header th:fragment="header" class="header">
+        <div class="logo">
+            <a href="/">
+                <img src="/images/Logo.png" class="logo-img" alt="">
+            </a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#title">About</a></li>
+                <li><a href="/list">Project</a></li>
+
+                <!--   로그인 ㅇ    -->
+                <li th:if="${session.userId != null}" class="userId">
+                    <a class="underLine">
+                        <span th:text="${session.userId}"></span>
+                        <span class="arrow rotate" id="arrow">▼</span>
+                    </a>
+
+                    <div class="UserInfo" id="UserInfo">
+                        <div class="InfoBox">
+                            <p class="userName">
+                                <span th:text="${session.userId} + ' 님'"></span>
+                            </p>
+                            <a href="/logout" class="logoutBtn">로그아웃</a>
+                        </div>
+
+                    </div>
+                </li>
+
+                <!--   로그인 X    -->
+                <li th:unless="${session.userId != null}">
+                    <a class="popupBtn">Login</a>
+                </li>
+<!--                <li ><a id="popupBtn">Login</a></li>-->
+            </ul>
+
+        </div>
+
+    </header>
+</body>
+
+</html>

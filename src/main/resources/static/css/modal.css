@@ -1,0 +1,192 @@
+/* 로그인 모달 */
+
+input{
+    border: none;
+}
+
+.background{
+    position: fixed;
+    top:0; left: 0; bottom: 0; right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+.login-box{
+    position: absolute;
+    top: calc(50vh - 300px); left: calc(50vw - 200px);
+    background-color: #dfe4f6;
+    border-radius: 10px;
+    width: 400px;
+    height: 500px;
+    padding: 40px;
+    box-sizing: border-box;
+    z-index: 1;
+    display: none;
+}
+
+.login-box > h1{
+    font-size: 30px;
+    color: #2470fe;
+    margin-bottom: 70px;
+    line-height: 1;
+}
+
+#login-form > input{
+    width: 100%;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+#login-form > input::placeholder{
+    color: #D2D2D2;
+}
+#login-form > input[type="submit"]{
+    color: #fff;
+    font-size: 16px;
+    background-color: #2470fe;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.login{
+    box-shadow: 0 0 0 0 #0240b0;
+}
+
+.login:hover{
+    box-shadow: 0 0 0 5px #0240b0;
+    transition: box-shadow 0.3s ease;
+}
+
+
+#login-form > input[type="checkbox"]{
+    display: none;
+}
+#login-form > label{
+    color: #999999;
+}
+
+.gosignin{
+    color: #999999;
+    cursor: pointer;
+    margin-right: 5px;
+    float: right;
+}
+
+.gosignin:hover{
+    color: #2470fe;
+    font-weight: bold;
+}
+
+#login-form input[type="checkbox"] + label{
+    cursor: pointer;
+    padding-left: 26px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#login-form input[type="checkbox"]:checked + label{
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.close-button img{
+    width: 15px;
+    float: right;
+    margin-right: 5px;
+}
+
+.close-button{
+    cursor: pointer;
+}
+
+/* 회원가입 모달 */
+.sign-box{
+    position: absolute;
+    top: calc(50vh - 300px); left: calc(50vw - 200px);
+    background-color: #dfe4f6;
+    border-radius: 10px;
+    width: 400px;
+    height: 500px;
+    padding: 40px;
+    box-sizing: border-box;
+    z-index: 1;
+    display: none;
+}
+
+.sign-box > h1{
+    font-size: 30px;
+    color: #2470fe;
+    margin-bottom: 70px;
+    line-height: 1;
+}
+
+#sign-form > input{
+    width: 100%;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+#sign-form > input::placeholder{
+    color: #D2D2D2;
+}
+#sign-form > input[type="submit"]{
+    color: #fff;
+    font-size: 16px;
+    background-color: #2470fe;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.signin{
+    box-shadow: 0 0 0 0 #0240b0;
+}
+
+.signin:hover{
+    box-shadow: 0 0 0 5px #0240b0;
+    transition: box-shadow 0.3s ease;
+}
+
+#sign-form > input[type="checkbox"]{
+    display: none;
+}
+#sign-form > label{
+    color: #999999;
+}
+
+.gologin{
+    color: #999999;
+    cursor: pointer;
+    margin-left: 5px;
+
+}
+
+.gologin:hover{
+    color: #2470fe;
+    font-weight: bold;
+}
+
+#sign-form input[type="checkbox"] + label{
+    cursor: pointer;
+    padding-left: 26px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#sign-form input[type="checkbox"]:checked + label{
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.close-button img{
+    width: 15px;
+    float: right;
+    margin-right: 5px;
+}
+
+.close-button{
+    cursor: pointer;
+}

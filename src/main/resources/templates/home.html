@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<link rel="stylesheet" type="text/css" href="/css/header.css">
+<link rel="stylesheet" type="text/css" href="/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/css/home.css">
+<link rel="stylesheet" type="text/css" href="/css/modal.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" th:src="@{/js/modal.js}"></script>
+<script type="text/javascript" th:src="@{/js/signup.js}"></script>
+<script type="text/javascript" th:src="@{/js/login.js}"></script>
+<script type="text/javascript" th:src="@{/js/userInfoModal.js}"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<!--    <header th:insert="~{header :: header}"></header>-->
+<header th:insert="~{header :: header}"></header>
+
+    <div class="container">
+        <div class="introduce">
+            <div class="myInfo">
+                <p class="name">박해구(Park HaeKoo)</p>
+                <p class="email"><span class="email-icon">📧</span> qkrgorn3617@naver.com</p>
+                <p class="info">Web Developer</p>
+
+                <p class="info-icon-tab">
+                    <span>
+                        <a href="https://github.com/hkPark0616" target="_blank">
+                            <img src="/images/git.png" class="info-icon1" alt="">
+                        </a>
+                    </span>
+                    <span>
+                        <a href="https://www.halla.ac.kr/mbs/kr/index.jsp" target="_blank">
+                            <img src="/images/HL_logo.png" class="info-icon2" alt="">
+                        </a>
+                    </span>
+                </p>
+            </div>
+            <div class="myPhoto">
+                <img src="/images/sample_img.jpg" alt="">
+            </div>
+
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="title" id="title">
+            About
+            <hr>
+        </div>
+    </div>
+    <!--  1 Education -->
+    <div class="main-container">
+        <div class="content-1">
+            <div class="description">
+                <h1>Education</h1>
+                <h3><span class="Emoji">🏛</span>️ Highschool</h3>
+                <p>남한고등학교</p>
+                <p>2015.03 ~ 2018.02</p>
+                <h3><span class="Emoji">🎓</span> University</h3>
+                <p>한라대학교, 컴퓨터공학과</p>
+                <p>2018.03 ~ 2014.02(졸업예정)</p>
+            </div>
+        </div>
+        <div class="content-img-1">
+            <img src="/images/building.jpg" alt="">
+        </div>
+    </div>
+
+    <!--  2 Certificates -->
+    <div class="main-container">
+        <div class="content-img-2">
+            <img src="/images/certification.jpg" alt="">
+        </div>
+        <div class="content-2">
+            <div class="description">
+                <h1>Certificates</h1>
+                <h3><span class="Emoji">📑</span> 정보처리기사</h3>
+                <p><strong>자격증 번호:</strong> 23201300302N</p>
+                <p><strong>주관처:</strong> 한국산업인력공단</p>
+                <p><strong>취득년월:</strong> 2023.06.09</p>
+                <h3><span class="Emoji">📑</span> 컴퓨터활용능력 1급</h3>
+                <p><strong>자격증 번호:</strong> 21-K9-145150</p>
+                <p><strong>주관처:</strong> 대한상공회의소</p>
+                <p><strong>취득년월:</strong> 2021.12.24</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3 Languages -->
+    <div class="main-container">
+        <div class="content-1">
+            <div class="description">
+                <h1>Languages</h1>
+                <h3><span class="Emoji">📚</span> TOEIC</h3>
+                <p><strong>유효기간:</strong> </p>
+            </div>
+        </div>
+        <div class="content-img-1">
+            <img src="/images/Languages.jpg" alt="">
+        </div>
+    </div>
+
+    <!--  4 Project  -->
+    <div class="main-container">
+        <div class="content-img-2">
+            <img src="/images/programming.jpg" alt="">
+        </div>
+        <div class="content-2">
+            <div class="description">
+                <h1>Project & Practice
+                    <span><a href="/list" class="more">+</a></span>
+                </h1>
+                <ul class="project-list">
+                    <li>
+                        <a href="#" title="">테스트테스트테스트테스트테스트테스트테스트테스트테스트</a>
+                    </li>
+                    <li>
+                        <a href="#" title="">테스트</a>
+                    </li>
+                    <li>
+                        <a href="#" title="">테스트</a>
+                    </li>
+                    <li>
+                        <a href="#" title="">테스트</a>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- 로그인 모달창 -->
+    <div class="background" id="background">
+        <div class="login-box" id="login-box">
+            <span class="close-button">
+                <img src="/images/close-button.png">
+            </span>
+            <h1>Login</h1>
+            <form method="post" id="login-form">
+                <input type="text" name="login_id" id="login_id" placeholder="Id">
+                <input type="password" name="login_password" id="login_password" placeholder="Password">
+                <label for="remember-check">
+                    <input type="checkbox" id="remember-check">아이디 저장하기
+                </label>
+                <a class="gosignin">회원가입!</a>
+                <input type="submit" value="Login" class="login">
+            </form>
+        </div>
+
+        <!-- 회원가입 모달창 -->
+        <div class="sign-box" id="sign-box">
+            <span class="close-button">
+                <img src="/images/close-button.png">
+            </span>
+            <h1>SignUp</h1>
+            <form method="post" id="sign-form">
+                <input type="text" name="id" id="id" placeholder="id">
+                <input type="text" name="name" id="name" placeholder="name">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <a class="gologin">로그인!</a>
+                <input type="submit" value="Signin" class="signin">
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <footer th:insert="~{footer :: footer}"></footer>
+</body>
+</html>
