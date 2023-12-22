@@ -8,9 +8,7 @@ import com.project.portfolio.dto.UserDto;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
@@ -37,15 +35,36 @@ public class BoardService {
 
 
     // Board List Get Controller
+
+//    public List<BoardDto> getBoardlist(){
+//        List<Board> boards = boardRepository.findAll();
+//
+//
+//        List<BoardDto> boardDtoList = new ArrayList<>();
+//
+//        for(Board board : boards){
+//            BoardDto boardDto = BoardDto.builder()
+//                    .id(board.getId())
+//                    .createdDate(board.getCreatedDate())
+//                    .modifiedDate(board.getModifiedDate())
+//                    .content(board.getContent())
+//                    .title(board.getTitle())
+//                    .writer(board.getWriter())
+//                    .build();
+//
+//            boardDtoList.add(boardDto);
+//        }
+//
+//        return boardDtoList;
+//    }
+
     @Transactional
-    public List<BoardDto> getBoardlist(){
-        List<Board> boards = boardRepository.findAll();
-
-
+    public Page<BoardDto> getBoardlist(Pageable pageable){
+        Page<Board> boards = boardRepository.findAll(pageable);
         List<BoardDto> boardDtoList = new ArrayList<>();
 
-        for(Board board : boards){
-            BoardDto boardDto = BoardDto.builder()
+        for (Board board : boards) {
+            BoardDto result = BoardDto.builder()
                     .id(board.getId())
                     .createdDate(board.getCreatedDate())
                     .modifiedDate(board.getModifiedDate())
@@ -53,11 +72,10 @@ public class BoardService {
                     .title(board.getTitle())
                     .writer(board.getWriter())
                     .build();
-
-            boardDtoList.add(boardDto);
+            boardDtoList.add(result);
         }
 
-        return boardDtoList;
+        return new PageImpl<>(boardDtoList, pageable, boards.getTotalElements());
     }
 
     // Board Detail Controller

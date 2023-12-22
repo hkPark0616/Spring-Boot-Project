@@ -49,8 +49,7 @@
         <!-- 게시글이 존재할때 -->
         <tbody th:unless="${#lists.isEmpty(boardList)}">
 
-        <tr th:each="board : ${boardList}" class="table-body">
-            <th:onclick="'javascript:window.location.href=\'/post/detail/\' + ' + ${board.id}"></th>
+        <tr th:each="board : ${boardList}" class="table-body" th:onclick="|javascript:window.location.href='@{/post/detail/}' + ${board.id}|">
 
             <td class="post-id">
                 <span th:text="${board.id}"></span>
@@ -76,9 +75,33 @@
 </div>
 
 <div>
-        <span th:each="pageNum : ${pageList}" th:inline="text">
-            <a th:href="@{'/list?page=' + ${pageNum}}">[[${pageNum}]]</a>
-        </span>
+    <div th:if="${!boardList.isEmpty()}">
+        <ul class="pagination"
+            th:with="
+            pageNumber = ${boardList.pageable.pageNumber},
+            pageSize = ${boardList.pageable.pageSize},
+            totalPages = ${boardList.totalPages},
+            startPage = ${T(java.lang.Math).floor(pageNumber / pageSize) * pageSize + 1},
+            tempEndPage = ${startPage + pageSize - 1},
+            endPage = (${tempEndPage < totalPages ? tempEndPage : totalPages})">
+
+            <li th:classappend="${boardList.first} ? 'disabled'" class="page-item">
+                <a class="page-link" th:href="${boardList.first} ? '#' : @{/list(page=${pageNumber - 1})}">
+                    <span aria-hidden="true">&lt;</span>
+                </a>
+            </li>
+
+            <li th:each="page: ${#numbers.sequence(startPage, endPage)}" th:classappend="${page == pageNumber + 1} ? 'active'" class="page-item">
+                <a th:text="${page}" class="page-link" th:href="@{/list(page=${page - 1})}"></a>
+            </li>
+
+            <li th:classappend="${boardList.last} ? 'disabled'" class="page-item">
+                <a class="page-link" th:href="${boardList.last} ? '#' : @{/list(page=${pageNumber + 1})}" aria-label="Next">
+                    <span aria-hidden="true">&gt;</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 
 </div>
 

@@ -1,10 +1,16 @@
 package com.project.portfolio.controller;
 
+import com.project.portfolio.domain.entity.Board;
 import com.project.portfolio.dto.BoardDto;
 import com.project.portfolio.service.BoardService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,11 +33,17 @@ public class BoardController {
     }
 
     // Board List Page
+//    @GetMapping("/list")
+//    public String list(Model model){
+//
+//        List<BoardDto> boardDtoList = boardService.getBoardlist();
+//        model.addAttribute("boardList", boardDtoList);
+//        return "/list";
+//    }
     @GetMapping("/list")
-    public String list(Model model){
+    public String list(Model model, @PageableDefault(page = 0, size = 10, sort = "createdDate", direction = Sort.Direction.DESC)Pageable pageable){
+        model.addAttribute("boardList", boardService.getBoardlist(pageable));
 
-        List<BoardDto> boardDtoList = boardService.getBoardlist();
-        model.addAttribute("boardList", boardDtoList);
         return "/list";
     }
 
