@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <link rel="stylesheet" type="text/css" href="/css/header.css">
 <link rel="stylesheet" type="text/css" href="/css/footer.css">
-<link rel="stylesheet" type="text/css" href="/css/write.css">
+<link rel="stylesheet" type="text/css" href="/css/update.css">
 <link rel="stylesheet" type="text/css" href="/css/modal.css">
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -13,6 +13,12 @@
 <script type="text/javascript" th:src="@{/js/update.js}"></script>
 <script type="text/javascript" th:src="@{/js/delete.js}"></script>
 <!--<script type="text/javascript" th:src="@{/js/checkSession.js}"></script>-->
+
+<!-- Summernote -->
+<script th:src="@{/summernote/summernote-lite.js}"></script>
+<script th:src="@{/summernote/lang/summernote-ko-KR.js}"></script>
+<script type="text/javascript" th:src="@{/js/summernote.js}"></script>
+<link rel="stylesheet" th:href="@{/summernote/summernote-lite.css}">
 
 <head>
     <meta charset="UTF-8">
@@ -28,15 +34,36 @@
         <input type="hidden" name="id" id="post-id" th:value="${boardDto.id}"/>
         <input type="hidden" name="createdDate" id="createdDate" th:value="${boardDto.createdDate}" readonly>
 
-        <input type="text" name="title" class="title" id="title" th:value="${boardDto.title}"><br>
-        <span class="writer-label">작성자 :
-            <input type="text" name="writer" class="writer" id="writer" th:value="${boardDto.writer}" readonly>
-        </span>
-        <br>
-        <textarea name="content" class="content" id="content" th:text="${boardDto.content}"></textarea><br>
+        <table class="content-table">
+            <!-- textarea header-->
+            <tr>
 
+                <td>
+                    <input type="text" name="title" class="title" id="title" th:value="${boardDto.title}"><br>
+                </td>
+
+                <td class="writer-label">작성자: </td>
+
+                <td>
+                    <input type="text" name="writer" class="writer" id="writer" th:value="${boardDto.writer}" readonly>
+                </td>
+
+            </tr>
+
+            <tr>
+                <!-- space -->
+            </tr>
+
+            <!-- textarea -->
+            <tr>
+                <td colspan="3" class="td">
+                    <textarea name="content" class="content" id="content" th:utext="${boardDto.content}" cols="138" rows="40">
+
+                    </textarea>
+                </td>
+            </tr>
+        </table>
         <input type="submit" value="수정" class="submit" id="update">
-
     </form>
 </div>
 

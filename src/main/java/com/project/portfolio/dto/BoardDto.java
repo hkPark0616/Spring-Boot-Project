@@ -26,25 +26,34 @@ public class BoardDto {
 
     private String writer;
 
+    private String thumbnail;
+
     public Board toEntity(){
         Board build = Board.builder()
                 .id(id)
                 .title(title)
                 .content(content)
                 .writer(writer)
+                .thumbnail(thumbnail)
                 .build();
 
         return build;
 
     }
         @Builder
-        public BoardDto(String title, Integer id,  String content, LocalDateTime createdDate, LocalDateTime modifiedDate, String writer) {
+        public BoardDto(String title,
+                        Integer id,
+                        String content,
+                        LocalDateTime createdDate,
+                        LocalDateTime modifiedDate,
+                        String writer,
+                        String thumbnail) {
             this.id = id;
             this.title = title;
             this.content = content;
-            this.createdDate = modifiedDate;
+            this.createdDate = createdDate;
             this.modifiedDate = modifiedDate;
             this.writer = writer;
-
+            this.thumbnail = thumbnail;
         }
 }

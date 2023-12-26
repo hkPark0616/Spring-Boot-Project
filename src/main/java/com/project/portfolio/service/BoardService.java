@@ -13,8 +13,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
+import org.springframework.web.util.HtmlUtils;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static java.util.Arrays.stream;
 
 @Service
 public class BoardService {
@@ -30,34 +35,35 @@ public class BoardService {
     // Post Write Controller
     @Transactional
     public Integer savePost(BoardDto boardDto){
+
         return boardRepository.save(boardDto.toEntity()).getId();
+
     }
 
+    // Home Board List Get Controller
+    public List<BoardDto> getHomelist(Pageable pageable){
+        Page<Board> boards = boardRepository.findAll(pageable);
 
-    // Board List Get Controller
 
-//    public List<BoardDto> getBoardlist(){
-//        List<Board> boards = boardRepository.findAll();
-//
-//
-//        List<BoardDto> boardDtoList = new ArrayList<>();
-//
-//        for(Board board : boards){
-//            BoardDto boardDto = BoardDto.builder()
-//                    .id(board.getId())
-//                    .createdDate(board.getCreatedDate())
-//                    .modifiedDate(board.getModifiedDate())
-//                    .content(board.getContent())
-//                    .title(board.getTitle())
-//                    .writer(board.getWriter())
-//                    .build();
-//
-//            boardDtoList.add(boardDto);
-//        }
-//
-//        return boardDtoList;
-//    }
+        List<BoardDto> boardList = new ArrayList<>();
 
+        for(Board board : boards){
+            BoardDto boardDto = BoardDto.builder()
+                    .id(board.getId())
+                    .createdDate(board.getCreatedDate())
+                    .modifiedDate(board.getModifiedDate())
+                    .content(board.getContent())
+                    .title(board.getTitle())
+                    .writer(board.getWriter())
+                    .build();
+
+            boardList.add(boardDto);
+        }
+
+        return boardList;
+    }
+
+    // Post Get Controller with Pageable
     @Transactional
     public Page<BoardDto> getBoardlist(Pageable pageable){
         Page<Board> boards = boardRepository.findAll(pageable);
@@ -71,6 +77,7 @@ public class BoardService {
                     .content(board.getContent())
                     .title(board.getTitle())
                     .writer(board.getWriter())
+                    .thumbnail(board.getThumbnail())
                     .build();
             boardDtoList.add(result);
         }
@@ -96,17 +103,58 @@ public class BoardService {
         return boardDto;
     }
 
+    //리뷰 중 첫번째 사진 썸네일로 지정
+    public String getImgSrc(String content) {
+        Pattern nonValidPattern = Pattern
+                .compile("(?i)< *[IMG][^\\>]*[src] *= *[\"\']{0,1}([^\"\'\\ >]*)");
+        int imgCnt = 0;
+        String img = "";
+        Matcher matcher = nonValidPattern.matcher(content);
+        while (matcher.find()) {
+            img = matcher.group(1);
+            imgCnt++;
+            if(imgCnt == 1){
+                break;
+            }
+        }
+        return img;
+    }
+
     @Transactional
     public Map<String, String> validateWrite(BoardDto boardDto) {
         Map<String, String> resultMap = new HashMap<>();
 
-
+            // title
         if (boardDto.getTitle() == null || boardDto.getTitle().isEmpty() ||
-                boardDto.getContent() == null || boardDto.getContent().isEmpty()) {
+                // content
+                boardDto.getContent() == null || boardDto.getContent() == "" ||boardDto.getContent().equals("&nbsp;") ||
+                boardDto.getContent().equals("<p>&nbsp;</p>") || boardDto.getContent().equals("<br>")
+                || boardDto.getContent().equals("<br/>") || boardDto.getContent().isEmpty()) {
 
             resultMap.put("success", "false");
 
         } else {
+
+            // Thumbnail Check
+            String content = boardDto.getContent();
+            String imgSrc = getImgSrc(content);
+            System.out.println(imgSrc);
+
+            // 게시글에 이미지가 없으면 empty 썸네일로 대체
+            if(imgSrc.isEmpty() || imgSrc == ""){
+                imgSrc = "/images/emptyThumbnail.png";
+                boardDto.setThumbnail(imgSrc);
+            }
+            // 게시글에 이미지가 존재하면 첫번째 이미지를 썸네일로
+            else{
+                boardDto.setThumbnail(imgSrc);
+            }
+
+
+            // HTML 이스케이프 처리
+            String escapedHtml = HtmlUtils.htmlEscape(boardDto.getContent());
+            boardDto.setContent(escapedHtml);
+
             resultMap.put("success", "true");
             savePost(boardDto);
         }
@@ -118,9 +166,12 @@ public class BoardService {
     public Map<String, String> validateUpdate(BoardDto boardDto) {
         Map<String, String> resultMap = new HashMap<>();
 
-
+        // title
         if (boardDto.getTitle() == null || boardDto.getTitle().isEmpty() ||
-                boardDto.getContent() == null || boardDto.getContent().isEmpty()) {
+                // content
+                boardDto.getContent() == null || boardDto.getContent().equals("&nbsp;") ||
+                boardDto.getContent().equals("<p>&nbsp;</p>") || boardDto.getContent().equals("<br>")
+                || boardDto.getContent().equals("<br/>") || boardDto.getContent().isEmpty()) {
 
             resultMap.put("success", "false");
 

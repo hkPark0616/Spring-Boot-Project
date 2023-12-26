@@ -56,9 +56,8 @@ html, body{
 
 .table{
     width: 80%;
-    margin: 0 auto;
+    margin: 0 auto 40px auto;
     border-spacing: 0 25px;
-    margin-bottom: 100px;
     /*border: 1px solid black;*/
     /*position: absolute;*/
     /*top: 50%;*/
@@ -79,6 +78,9 @@ html, body{
 }
 .id{
     width: 200px;
+}
+.thumbnail{
+    width: 400px;
 }
 .title{
     width: 1200px;
@@ -113,7 +115,10 @@ html, body{
     transition: background-color 0.5s ease;
 }
 
-.post-id, .post-writer, .post-date{
+/*.post-id, .post-writer, .post-date{*/
+/*    text-align: center;*/
+/*}*/
+.post-id{
     text-align: center;
 }
 
@@ -121,12 +126,100 @@ html, body{
     padding-left: 20px;
     text-decoration: none;
     color: #3b3b3b;
+    display:-webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    line-height: 1;
+    font-size: 23px;
+    margin-bottom: 90px;
 }
 
 .post-id{
     border-radius: 7px 0 0 7px;
 }
 
-.post-date{
-    border-radius: 0 7px 7px 0;
+.post-thumbnail{
+    width: 280px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.post-thumbnail img{
+    width:220px;
+    height:220px;
+    object-fit:contain;
+}
+
+.post-writer{
+    font-size: 18px;
+    margin-left: 35px;
+    line-height: 1;
+}
+
+.post-date{
+    font-size: 16px;
+    margin-left: 35px;
+    font-weight: normal;
+    line-height: 1;
+}
+
+/*.post-date{*/
+/*    border-radius: 0 7px 7px 0;*/
+/*}*/
+
+
+/* Pagination */
+.pagination {
+    display: block;
+    margin: 0 auto 100px auto;
+    justify-content: center;
+    /*border: 1px solid #ddd;*/
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+}
+
+.pagination li {
+    margin: 0 5px;
+    list-style: none;
+    display: inline-block;
+}
+
+.pagination a{
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.pagination span {
+    padding: 8px 2px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*current page*/
+.pagination .active a{
+    background-color: #8ec3ff;
+    color: #fff;
+    border-color: #8ec3ff;
+    pointer-events: none; /* 클릭 비활성화 */
+    cursor: default; /* 커서 모양 변경 */
+}
+
+/* hover */
+.page-link:hover, .pagination a:hover, .pagination li:hover, .pagination a:hover span{
+    background-color: #8ec3ff;
+    color: #fff;
+    border-color: #8ec3ff;
+}
+

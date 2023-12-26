@@ -5,6 +5,8 @@ $(document).ready(function() {
 
         if (!confirmDelete) {
             event.preventDefault();
+        }else{
+            alert("삭제되었습니다.");
         }
 
     });

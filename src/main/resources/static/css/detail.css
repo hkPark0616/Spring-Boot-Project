@@ -64,9 +64,9 @@ body, html{
 
 .content{
     width: 1050px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     margin: 0 auto;
-    padding: 30px;
+    padding: 10px;
 }
 
 .button-box{

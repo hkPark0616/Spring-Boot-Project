@@ -20,7 +20,7 @@ function updatePost() {
 
         var update_form = {
             id: $('#post-id').val(),
-            // createdDate: $('#createdDate').val(),
+            createdDate: $('#createdDate').val(),
             title: $('#title').val(),
             writer: $('#writer').val(),
             content: $('#content').val()

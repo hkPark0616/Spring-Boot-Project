@@ -26,17 +26,41 @@ public class UserService {
 
     // 회원가입 성공 시 유저 정보 저장
     @Transactional
-    public String saveUser(UserDto userDto) {
+    public Map<String, String> saveUser(UserDto userDto) {
 //        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
 //        userRepository.save(userDto.toEntity());
 //        return userDto.getId();
+        Map<String, String> map = new HashMap<>();
+        if(userDto.getId().isEmpty()){    // id validate
+            map.put("idnull", "false");
+            map.put("success", "false");
+        } else if (isExistId(userDto)) {
+            map.put("id", "false");
+            map.put("success", "false");
+        } else if(userDto.getName().isEmpty()){         // name validate
+            map.put("namenull", "false");
+            map.put("success", "false");
+        }else if (isExistName(userDto)) {
+            map.put("name", "false");
+            map.put("success", "false");
+        }else if(userDto.getPassword().isEmpty()){
+            map.put("password", "false");
+            map.put("success", "false");
+        }else{
+            // Bcrypt
+            String pwd = userDto.getPassword();
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            String encodedPwd = encoder.encode(pwd);
+            // user Save
+            userDto.setPassword(encodedPwd);
+            userRepository.save(userDto.toEntity());
 
-        String pwd = userDto.getPassword();
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String encodedPwd = encoder.encode(pwd);
-        userDto.setPassword(encodedPwd);
+            map.put("success", "true");
+        }
 
-        return userRepository.save(userDto.toEntity()).getId();
+
+//        return userRepository.save(userDto.toEntity()).getId();
+        return map;
     }
 
     // 아이디 중복확인

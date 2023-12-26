@@ -127,6 +127,7 @@ body, html{
     background-color: #f1f1f1;
     display: flex;
     align-items: center;
+    padding-left: 40px;
 }
 
 .content-img-1{
@@ -159,7 +160,7 @@ body, html{
     padding: 20px 20px 20px 60px;
 }
 .description h1{
-    line-height: 2;
+    line-height: 1.4em;
 }
 
 .description h3{
@@ -174,6 +175,7 @@ body, html{
 .project-list a{
     text-decoration: none;
     color: #2f2f2f;
+    font-size: 21px;
     display:-webkit-box;
     -webkit-line-clamp:1;
     -webkit-box-orient:vertical;

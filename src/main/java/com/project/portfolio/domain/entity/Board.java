@@ -18,15 +18,24 @@ public class Board extends TimeEntity {
     @Id  @GeneratedValue
     private Integer id;
 
+    @Column(length = 255)
     private String title;
 
+    @Column(length = 4000)
     private String content;
 
-
+    @Column(length = 255)
     private String writer;
 
+    @Column(length = 255)
+    private String thumbnail;
+
     @Builder
-    public Board(String title, Integer id,  String content, String writer){
+    public Board(String title,
+                 Integer id,
+                 String content,
+                 String writer,
+                 String thumbnail){
         this.id = id;
 
         this.title = title;
@@ -34,6 +43,8 @@ public class Board extends TimeEntity {
         this.content = content;
 
         this.writer = writer;
+
+        this.thumbnail = thumbnail;
 
     }
 }

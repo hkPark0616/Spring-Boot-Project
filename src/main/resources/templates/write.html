@@ -1,40 +1,69 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
-<link rel="stylesheet" type="text/css" href="/css/header.css">
-<link rel="stylesheet" type="text/css" href="/css/footer.css">
-<link rel="stylesheet" type="text/css" href="/css/write.css">
-<link rel="stylesheet" type="text/css" href="/css/modal.css">
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" th:src="@{/js/modal.js}"></script>
-<script type="text/javascript" th:src="@{/js/signup.js}"></script>
-<script type="text/javascript" th:src="@{/js/login.js}"></script>
-<script type="text/javascript" th:src="@{/js/userInfoModal.js}"></script>
-<script type="text/javascript" th:src="@{/js/writeCheck.js}"></script>
-<script type="text/javascript" th:src="@{/js/writeValid.js}"></script>
-<!--<script type="text/javascript" th:src="@{/js/checkSession.js}"></script>-->
-
 <head>
   <meta charset="UTF-8">
   <title>Write</title>
+
+  <!-- css -->
+  <link rel="stylesheet" type="text/css" href="/css/header.css">
+  <link rel="stylesheet" type="text/css" href="/css/footer.css">
+  <link rel="stylesheet" type="text/css" href="/css/write.css">
+  <link rel="stylesheet" type="text/css" href="/css/modal.css">
+
+  <!-- js -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" th:src="@{/js/modal.js}"></script>
+  <script type="text/javascript" th:src="@{/js/signup.js}"></script>
+  <script type="text/javascript" th:src="@{/js/login.js}"></script>
+  <script type="text/javascript" th:src="@{/js/userInfoModal.js}"></script>
+  <script type="text/javascript" th:src="@{/js/writeCheck.js}"></script>
+<!--  <script type="text/javascript" th:src="@{/js/writeValid.js}"></script>-->
+
+
+
+  <!-- Summernote -->
+  <script th:src="@{/summernote/summernote-lite.js}"></script>
+  <script th:src="@{/summernote/lang/summernote-ko-KR.js}"></script>
+  <script type="text/javascript" th:src="@{/js/summernote.js}"></script>
+  <link rel="stylesheet" th:href="@{/summernote/summernote-lite.css}">
+
 </head>
 <body>
 <header th:insert="~{header :: header}"></header>
 <!--<p th:text="${session.userId}"></p>-->
 <div class="container">
   <form method="post" class="form" id="form">
-    <input type="text" name="title" class="title" id="title" placeholder="제목"><br>
+    <table class="content-table">
+      <!-- textarea header-->
+      <tr>
 
+        <td>
+          <input type="text" name="title" class="title" id="title" placeholder="제목"><br>
+        </td>
 
+        <td class="writer-label">작성자: </td>
 
-    <span class="writer-label">작성자 :
-      <input type="text" name="writer" class="writer" id="writer" th:value="${session.userId}" disabled>
-    </span>
-    <br>
+        <td>
+          <input type="text" name="writer" class="writer" id="writer" th:value="${session.userId}" disabled>
+        </td>
 
-    <textarea name="content" class="content" id="content" ></textarea><br>
+      </tr>
+
+      <tr>
+        <!-- space -->
+      </tr>
+
+      <!-- textarea -->
+      <tr>
+        <td colspan="3" class="td">
+          <textarea name="content" id="content" placeholder="내용을 입력해주세요." cols="138" rows="40">
+
+          </textarea>
+        </td>
+      </tr>
+    </table>
+
     <input type="submit" value="등록" class="submit">
-
   </form>
 </div>
 
@@ -74,5 +103,9 @@
 
 <footer th:insert="~{footer :: footer}"></footer>
 </body>
+<!-- SmartEditor v2.8.2.3: archive v2.8.2.4259f59 -->
+<!--<script type="text/javascript" th:src="@{../smarteditor/js/HuskyEZCreator.js}"></script>-->
 
+
+<!-- Summernote -->
 </html>

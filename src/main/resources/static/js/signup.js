@@ -38,11 +38,24 @@ $(document).ready(function() {
                 } else {
                     if (json.name === "false") {
                         //이미 존재하는 이름
-                        alert("이미 존재하는 이름입니다.")
-                    } else if (json.id === "false") {
-                        //이미 존재하는 이메일
+                        alert("이미 존재하는 이름입니다.");
+                    } else if (json.namenull === "false") {
+                        // 이름 미입력
+                        alert("이름을 입력해주세요.");
+
+                    }else if (json.id === "false") {
+                        //이미 존재하는 아이디
                         alert("이미 존재하는 아이디입니다.")
-                    } else {
+                    } else if (json.idnull === "false") {
+                        // 아이디 미입력
+                        alert("아이디을 입력해주세요.");
+
+                    }else if (json.password === "false") {
+                        // 비밀번호 미입력
+                        alert("비밀번호를 입력해주세요.");
+                    }
+
+                    else {
                         alert("다시 시도해주세요.")
                     }
                 }

@@ -37,7 +37,13 @@ dependencies {
 
 	runtimeOnly("com.mysql:mysql-connector-j")
 
+//	implementation 'org.jsoup:jsoup:1.17.1'
+
 	//implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+
+	// summernote
+	implementation 'com.google.code.gson:gson:2.8.9'
+	implementation 'commons-io:commons-io:2.11.0'
 }
 
 tasks.named('test') {

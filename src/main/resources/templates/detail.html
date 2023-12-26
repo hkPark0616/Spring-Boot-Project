@@ -31,8 +31,9 @@
 
 
 <div class="container">
-    <div class="content">
-        <p th:text="${boardDto.content}"></p>
+    <div class="content" th:utext="${boardDto.content}">
+<!--        <p th:text="${boardDto.content}">${boardDto.content}</p>-->
+
     </div>
 
     <hr class="bottom-line">

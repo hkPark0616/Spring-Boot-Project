@@ -29,28 +29,11 @@ public class LoginController {
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
 
-
     @ResponseBody
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public Map<String, String> doRegister(@ModelAttribute(name = "userDto") UserDto userDto){
-        Map<String, String> map = new HashMap<>();
-        try {
-            map.put("id", "true");
-            map.put("name", "true");
-            if (userService.isExistId(userDto)) {
-                map.put("id", "false");
-                map.put("success", "false");
-            } else if (userService.isExistName(userDto)) {
-                map.put("name", "false");
-                map.put("success", "false");
-            } else {
-                userService.saveUser(userDto);
-                map.put("success", "true");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return map;
+
+        return userService.saveUser(userDto);
     }
 
     @ResponseBody
@@ -67,24 +50,6 @@ public class LoginController {
 
         return userService.validateLogin(userDto);
 
-        //        Map<String, String> map2 = new HashMap<>();
-//
-//        Optional<UserEntity> _user = this.userRepository.findById(userDto.getId());
-//        if(_user.isEmpty()){
-//            map2.put("success", "false");
-//        }else{
-//            UserEntity user = _user.get();
-//            if(passwordEncoder.matches(userDto.getPassword(), user.getPassword())){
-//                System.out.println("true");
-//                map2.put("success", "true");
-//            }
-//            else{
-//                System.out.println("false");
-//                map2.put("success", "false");
-//            }
-//        }
-//
-//        return map2;
     }
 
 
