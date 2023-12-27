@@ -54,7 +54,7 @@ public class BoardController {
     @GetMapping("/list")
     public String list(Model model,
                        @PageableDefault(page = 0,
-                                        size = 10,
+                                        size = 9,
                                         sort = "createdDate",
                                         direction = Sort.Direction.DESC) Pageable pageable){
 

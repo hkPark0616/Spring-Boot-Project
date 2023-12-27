@@ -11,6 +11,7 @@
 <script type="text/javascript" th:src="@{/js/login.js}"></script>
 <script type="text/javascript" th:src="@{/js/userInfoModal.js}"></script>
 <script type="text/javascript" th:src="@{/js/home.js}"></script>
+<script type="text/javascript" th:src="@{/js/hover.js}"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -57,10 +58,10 @@
         <div class="content-1">
             <div class="description">
                 <h1>Education</h1>
-                <h3><span class="Emoji">🏛</span>️ Highschool</h3>
+                <h3><span class="Emoji">🎓</span>️ Highschool</h3>
                 <p>남한고등학교</p>
                 <p>2015.03 ~ 2018.02</p>
-                <h3><span class="Emoji">🎓</span> University</h3>
+                <h3 class="hover" value="university"><span class="Emoji">🎓</span> <span class="link"> University</span></h3>
                 <p>한라대학교, 컴퓨터공학과</p>
                 <p>2018.03 ~ 2014.02(졸업예정)</p>
             </div>
@@ -70,6 +71,10 @@
         </div>
     </div>
 
+<!--<div id="hoverDiv">-->
+<!--    <img id="hoverImg" src="">-->
+<!--</div>-->
+
     <!--  2 Certificates -->
     <div class="main-container">
         <div class="content-img-2">
@@ -78,11 +83,11 @@
         <div class="content-2">
             <div class="description">
                 <h1>Certificates</h1>
-                <h3><span class="Emoji">📑</span> 정보처리기사</h3>
+                <h3 class="hover" value="document1"><span class="Emoji">📑 </span><span class="link">정보처리기사</span></h3>
                 <p><strong>자격증 번호:</strong> 23201300302N</p>
                 <p><strong>주관처:</strong> 한국산업인력공단</p>
                 <p><strong>취득년월:</strong> 2023.06.09</p>
-                <h3><span class="Emoji">📑</span> 컴퓨터활용능력 1급</h3>
+                <h3 class="hover" value="document2"><span class="Emoji">📑 </span><span class="link">컴퓨터활용능력 1급</span></h3>
                 <p><strong>자격증 번호:</strong> 21-K9-145150</p>
                 <p><strong>주관처:</strong> 대한상공회의소</p>
                 <p><strong>취득년월:</strong> 2021.12.24</p>
@@ -95,7 +100,7 @@
         <div class="content-1">
             <div class="description">
                 <h1>Languages</h1>
-                <h3><span class="Emoji">📚</span> TOEIC(English)</h3>
+                <h3 class="hover" value="toeic"><span class="Emoji">📚 </span><span class="link">TOEIC(English)</span></h3>
                 <p><strong>점수: </strong>780</p>
                 <p><strong>유효기간: </strong>2023.12.10 ~ 2025/12/10</p>
             </div>
@@ -113,7 +118,7 @@
         <div class="content-2">
             <div class="description">
                 <h1>Project & Practice
-                    <span><a href="/list" class="more">+</a></span>
+                    <span class="plus"><a href="/list" class="more">+</a></span>
                 </h1>
                 <ul class="project-list">
                     <!-- getList -->

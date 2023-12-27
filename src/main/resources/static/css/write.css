@@ -60,6 +60,15 @@ body, html{
 
 .td{
     padding-left: 97px;
+
+}
+
+.text{
+    text-align: left;
+    padding-left: 110px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: #858585;
 }
 
 iframe{

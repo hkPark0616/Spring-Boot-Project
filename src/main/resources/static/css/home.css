@@ -215,7 +215,7 @@ body, html{
     padding-bottom: 5px;
     border-radius: 5px;
 }
-.description span:hover{
+.plus:hover{
     background-color: #ababab;
     transition: background-color 0.5s ease;
 }
@@ -223,4 +223,24 @@ body, html{
 /*.more:hover{*/
 /*    background-color: #ababab;*/
 /*}*/
+
+#hoverDiv {
+    position: absolute;
+    border: 1px solid black;
+    width: 500px;
+    height: 700px;
+    display: none;
+    padding: 0;
+}
+
+#hoverDiv img{
+    width: 500px;
+    height: 700px;
+}
+
+.link{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-position : under;
+}
 

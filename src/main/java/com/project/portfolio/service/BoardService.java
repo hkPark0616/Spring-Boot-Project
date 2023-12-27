@@ -67,6 +67,7 @@ public class BoardService {
     @Transactional
     public Page<BoardDto> getBoardlist(Pageable pageable){
         Page<Board> boards = boardRepository.findAll(pageable);
+        System.out.println(boards);
         List<BoardDto> boardDtoList = new ArrayList<>();
 
         for (Board board : boards) {

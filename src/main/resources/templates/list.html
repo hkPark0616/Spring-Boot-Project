@@ -13,6 +13,8 @@
 <script type="text/javascript" th:src="@{/js/userInfoModal.js}"></script>
 <script type="text/javascript" th:src="@{/js/writeValid.js}"></script>
 <script type="text/javascript" th:src="@{/js/checkSession.js}"></script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <head>
     <meta charset="UTF-8">
     <title>Project List</title>
@@ -24,67 +26,58 @@
 <div class="container">
 
     <div class="button-container">
+        <a class="pageInfo">
+            <span>전체 </span><span th:text="${boardList.getTotalElements()}"></span><span>건 중 </span>
+            <span th:text="${boardList.pageable.pageNumber}+1"></span><span> 페이지</span>
+        </a>
+
         <a href="/post" class="write-button" id="write-button">글쓰기</a>
     </div>
 
-    <table class="table">
-        <thead>
-        <tr class="table-head">
-            <th class="id">글번호</th>
-            <th class="thumbnail">썸네일</th>
-            <th class="title">글제목</th>
-<!--            <th class="writer">작성자</th>-->
-<!--            <th class="date">작성일</th>-->
-        </tr>
-        </thead>
-        <!-- 게시글이 없을때 -->
-        <tbody th:if="${#lists.isEmpty(boardList)}">
-        <tr>
-            <th colspan="4" class="none">
-                <span class="Emoji">😓</span>
-                게시글이 없습니다.
-            </th>
-        </tr>
-        </tbody>
+<!--    <hr class="line">-->
+</div>
 
-        <!-- 게시글이 존재할때 -->
-        <tbody th:unless="${#lists.isEmpty(boardList)}">
+<!-- 게시글이 없을때 -->
+<div class="container"  th:if="${boardList.isEmpty()}">
 
-        <tr th:each="board : ${boardList}" class="table-body" th:onclick="|javascript:window.location.href='@{/post/detail/}' + ${board.id}|">
+    <div class="main-container">
+        <div class="none">
+            <span class="Emoji">😓 게시글이 없습니다.</span>
+        </div>
+    </div>
 
-            <td class="post-id">
-                <span th:text="${board.id}"></span>
-            </td>
+</div>
 
-            <td class="post-thumbnail">
-                <!-- 게시글에 썸네일이 존재하면 -->
-                <img th:if="${board.thumbnail != null}" th:src="${board.thumbnail}" alt="Thumbnail Image">
-                <!-- 썸네일이 없는 작업 이전의 게시글 썸네일 -->
-                <img th:if="${board.thumbnail == null}" th:src="@{/images/emptyThumbnail.png}" alt="Empty Thumbnail">
-            </td>
+<!-- 게시글이 존재할때 -->
+<div class="container" th:unless="${boardList.isEmpty()}">
 
-            <td class="post-title">
+    <div class="main-container">
 
-                <a th:href="@{'/post/detail/' + ${board.id}}" th:title="${board.title}">
-                    <span th:text="${board.title}"></span>
-                </a>
+        <div class="box"  th:each="board : ${boardList}" th:onclick="|javascript:window.location.href='@{/post/detail/}' + ${board.id}|">
+            <p th:text="${board.id}" class="post-id"></p>
+            <!-- 게시글에 썸네일이 존재하면-->
 
+            <img class="post-thumbnail" th:if="${board.thumbnail != null}" th:src="${board.thumbnail}" alt="Thumbnail Image">
+            <!-- 썸네일이 없는 작업 이전의 게시글 썸네일 -->
+            <img class="post-thumbnail" th:if="${board.thumbnail == null}" th:src="@{/images/emptyThumbnail.png}" alt="Empty Thumbnail">
 
-                <p th:text="${board.writer}" class="post-writer"></p>
+            <p th:text="${board.title}" class="post-name"></p>
 
-                <p th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}" class="post-date"></p>
-            </td>
-<!--            <td class="post-writer">-->
-<!--                <span th:text="${board.writer}"></span>-->
-<!--            </td>-->
-<!--            <td class="post-date">-->
-<!--                <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>-->
-<!--            </td>-->
+            <div class="detail">
+                <p class="user">
+                    <span class="material-symbols-outlined">person</span>
+                    <span th:text="${board.writer}" class="post-writer"></span>
+                </p>
 
-        </tr>
+                <p class="date">
+                    <span class="material-symbols-outlined">schedule</span>
+                    <span class="post-date" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+                </p>
+            </div>
 
-        </td>
-    </table>
+        </div>
+
+    </div>
 
 </div>
 
