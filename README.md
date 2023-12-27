@@ -14,18 +14,18 @@ summernote라는 웹 에디터를 활용하여, 개인 및 팀 프로젝트에 �
 추후 웹 사이트를 공개적으로 사용할 수 있도록 서버에 배포할 계획입니다.(서버 미정)
 
 
-####  Front-end
+  ####  Front-end
+  
+  * <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white"> <img src="https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jQuery&logoColor=white"> 
+    <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat&logo=Javascript&logoColor=white"><br>
 
-* <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white"> <img src="https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jQuery&logoColor=white"> 
-  <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat&logo=Javascript&logoColor=white"><br>
-
-####  Back-end
-
-* <img src="https://img.shields.io/badge/SpringBoot-success?style=flat&logo=Spring&logoColor=white"/> <img src="https://img.shields.io/badge/Java-ED8106?style=flat&logo=Spring&logoColor=white"/>
-
-####  Database
-
-* <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"><br>
+  ####  Back-end
+  
+  * <img src="https://img.shields.io/badge/SpringBoot-success?style=flat&logo=Spring&logoColor=white"/> <img src="https://img.shields.io/badge/Java-ED8106?style=flat&logo=Spring&logoColor=white"/>
+  
+  ####  Database
+  
+  * <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"><br>
 
 <br/>
 
