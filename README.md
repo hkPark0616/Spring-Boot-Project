@@ -14,4 +14,20 @@ Spring Boot를 이용한 개인 Portfolio 사이트 입니다. <br>
 추후 서버에 배포할 계획입니다.(서버 미정)
 
 
-####  Programming Language
+####  Front-end
+
+* <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white"> <img src="https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jQuery&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat&logo=Javascript&logoColor=white"><br>
+
+####  Back-end
+
+* <img src="https://img.shields.io/badge/SpringBoot-success?style=flat-square&logo=Spring&logoColor=white"/> <img src="https://img.shields.io/badge/JAVA-yellow?style=flat-square&logo=JavaScript&logoColor=white"/>
+
+
+####  Database
+
+* <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"><br>
+
+<br/>
+
+## 📄 웹페이지 구성
