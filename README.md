@@ -21,7 +21,7 @@ summernote라는 웹 에디터를 활용하여, 개인 및 팀 프로젝트에 �
 
 ####  Back-end
 
-* <img src="https://img.shields.io/badge/SpringBoot-success?style=flat-square&logo=Spring&logoColor=white"/> <img src="https://img.shields.io/badge/Java-ED8106?style=flat-square&logo=Spring&logoColor=white"/>
+* <img src="https://img.shields.io/badge/SpringBoot-success?style=flat&logo=Spring&logoColor=white"/> <img src="https://img.shields.io/badge/Java-ED8106?style=flat&logo=Spring&logoColor=white"/>
 
 ####  Database
 
