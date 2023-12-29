@@ -53,8 +53,8 @@
 
     <div class="main-container">
 
-        <div class="box"  th:each="board : ${boardList}" th:onclick="|javascript:window.location.href='@{/post/detail/}' + ${board.id}|">
-            <p th:text="${board.id}" class="post-id"></p>
+        <div class="box"  th:each="board : ${boardList}" th:onclick="|javascript:window.location.href='@{/post/detail/}' + ${board.id}|" th:title="${board.title} + '/' + ${board.id}">
+<!--            <p th:text="${board.id}" class="post-id"></p>-->
             <!-- 게시글에 썸네일이 존재하면-->
 
             <img class="post-thumbnail" th:if="${board.thumbnail != null}" th:src="${board.thumbnail}" alt="Thumbnail Image">
@@ -65,12 +65,12 @@
 
             <div class="detail">
                 <p class="user">
-                    <span class="material-symbols-outlined">person</span>
+                    <span class="material-symbols-outlined" style="font-size: 21px; color: #888888;">person</span>
                     <span th:text="${board.writer}" class="post-writer"></span>
                 </p>
 
                 <p class="date">
-                    <span class="material-symbols-outlined">schedule</span>
+                    <span class="material-symbols-outlined" style="font-size: 21px; color: #888888;">schedule</span>
                     <span class="post-date" th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
                 </p>
             </div>
