@@ -32,7 +32,7 @@ summernote라는 웹 에디터를 활용하여, 개인 및 팀 프로젝트에 �
 ## 📄 웹페이지 구성
 
  * ### 메인화면
-     <img src="![main](https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/f9a7bd01-d37e-4fd4-8e6b-d2d57095a219)"  width="800" height="400"/>
+     <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/f9a7bd01-d37e-4fd4-8e6b-d2d57095a219"  width="800" height="400"/>
 
  * ### 회원가입 및 로그인
 
