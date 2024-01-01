@@ -44,7 +44,8 @@ summernote라는 웹 에디터를 활용하여, 개인 및 팀 프로젝트에 �
    | <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/bd5ed28d-963c-4ba2-a8b8-9ac07f6be7f1"  width="500" height="300"/> | <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/cb26cc73-516d-4fc3-bbd6-34bcf6911fcc"  width="500" height="300"/> | 
 
  * ### 게시글 작성
-
+   summernote라는 웹 에디터를 이용하여 게시글을 작성할 수 있으며, 관리자만 작성 가능합니다.
+    <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/6861e8ae-6dd6-4d23-8261-5061da336da4"  width="800" height="400"/>
 
  * ### 게시글 수정
 
