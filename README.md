@@ -38,13 +38,10 @@ summernote라는 웹 에디터를 활용하여, 개인 및 팀 프로젝트에 �
  * ### 회원가입 및 로그인, 로그아웃
      <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/d4ea68ae-b432-4a9e-8beb-a8205d286e9f"  width="800" height="400"/>
 
- * ### 게시글 목록
-   | 목록 | 페이징 |
+ * ### 게시글
+   | 목록 및 상세 페이지 | 페이징 |
    |------------|------------|
    |            | <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/cb26cc73-516d-4fc3-bbd6-34bcf6911fcc"  width="500" height="300"/> | 
-
- * ### 상세 페이지
-
 
  * ### 게시글 작성
 
