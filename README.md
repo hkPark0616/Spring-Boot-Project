@@ -41,7 +41,7 @@ summernote라는 웹 에디터를 활용하여, 개인 및 팀 프로젝트에 �
  * ### 게시글 목록
    | 목록 | 페이징 |
    |------------|------------|
-   |            | <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/cb26cc73-516d-4fc3-bbd6-34bcf6911fcc"  width="600" height="200"/> | 
+   |            | <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/cb26cc73-516d-4fc3-bbd6-34bcf6911fcc"  width="500" height="300"/> | 
 
  * ### 상세 페이지
 
