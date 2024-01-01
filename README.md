@@ -48,10 +48,12 @@ summernote라는 웹 에디터를 활용하여, 개인 및 팀 프로젝트에 �
     <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/6861e8ae-6dd6-4d23-8261-5061da336da4"  width="800" height="400"/>
 
  * ### 게시글 수정
+   관리자만 수정 가능합니다.
     <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/ad62e763-e78c-4f5b-939d-7fa40d58577c"  width="800" height="400"/>
 
  * ### 게시글 삭제
-    <img src=""  width="800" height="400"/>
+   관리자만 삭제 가능합니다.
+    <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/ecee60ef-9d22-41c5-816c-7cbfc4b4358f"  width="800" height="400"/>
 
 <br/>
 
