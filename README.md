@@ -57,4 +57,13 @@ summernote라는 웹 에디터를 활용하여, 개인 및 팀 프로젝트에 �
 
 
 ## 📰 참고
+   #### 게시판 기능
+   https://velog.io/@max9106/Spring-Boot-JPA-MySQL-%EA%B2%8C%EC%8B%9C%EA%B8%80-%EC%88%98%EC%A0%95-%EC%82%AD%EC%A0%9C
+   #### 페이징
+   https://magicmk.tistory.com/43
+   #### 회원가입 및 로그인
+   https://youngest-programming.tistory.com/324
+   #### summernote
+   https://sirobako.co.kr/detail/49
+   https://youseong.me/auth/portboard/details?id=11
 
