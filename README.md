@@ -36,7 +36,7 @@ summernote라는 웹 에디터를 활용하여, 개인 및 팀 프로젝트에 �
      <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/f9a7bd01-d37e-4fd4-8e6b-d2d57095a219"  width="800" height="400"/>
 
  * ### 회원가입 및 로그인, 로그아웃
-     <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/76410d69-f607-4be5-b40a-75b967d84d9e"  width="800" height="400"/>
+     <img src="https://github.com/hkPark0616/Spring-Boot-Project/assets/113004801/d4ea68ae-b432-4a9e-8beb-a8205d286e9f"  width="800" height="400"/>
 
  * ### 게시글 목록
 
